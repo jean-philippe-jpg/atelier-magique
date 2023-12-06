@@ -47,4 +47,8 @@ class Elfes
 
         return $this;
     }
+
+    public function __toString() {
+        return "La valeur de la classe est : " . $this->valeur;
+    }
 }

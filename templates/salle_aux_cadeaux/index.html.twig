@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} cadeaux{% endblock %}
+
+{% block body %}
+<h1 style="margin-left: 30vw;  margin-top: 25px; color: green;"> salle anchanté des cadeaux magique !!</h1>
+  
+{% for ages in tata %}
+
+  <div id="jouet" style="margin-left: 25px; color: white; width: 100px; height: 100px; background: red; margin-top: 10px; ">
+   <h3>{{ ages.name}}</h3> 
+  </div>
+
+{% endfor %}
+    
+{% endblock %}

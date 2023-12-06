@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Elfes{% endblock %}
+
+{% block body %}
+    <h1>Edit Elfes</h1>
+
+    {{ include('elfes/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_elfes_index') }}">back to list</a>
+
+    {{ include('elfes/_delete_form.html.twig') }}
+{% endblock %}
