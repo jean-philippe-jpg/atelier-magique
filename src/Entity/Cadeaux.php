@@ -25,6 +25,9 @@ class Cadeaux
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
+    #[ORM\ManyToOne(inversedBy: 'cadeaux')]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -80,5 +83,17 @@ class Cadeaux
 
     public function __toString() {
         return "La valeur de la classe est : " . $this->valeur;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
     }
 }
