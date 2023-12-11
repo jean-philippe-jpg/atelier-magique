@@ -25,7 +25,7 @@ class Cadeaux
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\ManyToOne(inversedBy: 'cadeaux')]
+    #[ORM\ManyToOne(inversedBy: 'Cadeaux')]
     private ?User $user = null;
 
     public function getId(): ?int

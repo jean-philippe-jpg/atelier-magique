@@ -19,7 +19,7 @@ class SalleAuxCadeauxController extends AbstractController
 
             'tata' => $CadeauxRepository->findBy([], [
                 
-                'age' => 'asc'])
+                'name' => 'asc'])
         ]);
     }
 

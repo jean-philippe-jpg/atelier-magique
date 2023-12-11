@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LutinsController!{% endblock %}
+
+  
+
+{% block body %}
+
+<h1>  liste des lutins </h1>
+{% for lutin in lutins %}
+   
+  <div>
+    <h3>{{ lutin.username }}</h3>
+  </div>
+  
+  {% endfor %}
+{% endblock %}
