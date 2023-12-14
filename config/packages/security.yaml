@@ -39,7 +39,9 @@ security:
     access_control:
         - { path: ^/elfes, roles: ROLE_ADMIN  }
         - { path: ^/cadeaux, roles: ROLE_ADMIN  }
+       
         - { path: ^/salle, roles: ROLE_USER }
+        - { path: ^/utilisateurs, roles: ROLE_USER }
         
         
 
