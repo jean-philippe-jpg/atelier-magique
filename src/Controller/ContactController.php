@@ -17,11 +17,14 @@ use Symfony\Component\Mime\Email;
 #[Route('/contact')]
 class ContactController extends AbstractController
 {
+
+
     #[Route('/', name: 'app_contact_index', methods: ['GET'])]
     public function index(ContactRepository $contactRepository): Response
     {
         return $this->render('contact/index.html.twig', [
             'contacts' => $contactRepository->findAll(),
+            
         ]);
     }
 
@@ -29,8 +32,8 @@ class ContactController extends AbstractController
     public function new(Request $request, ContactRepository $ContactRepository, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
     {   
 
+        
         $contact = new Contact();
-       
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
@@ -39,23 +42,24 @@ class ContactController extends AbstractController
             
             $entityManager->persist($contact);
             $entityManager->flush();
-            $ContactRepository->save($contact, true);
+
+           
             $email= $contact->getEmail();
             $nom= $contact->getNom();
             $prenom= $contact->getPrenom();
 
             $email = (new Email())
 
-                   ->from('didierdeschamps@example.com')
+                   ->from( 'didierdeschamps@exemple.com')
                    ->to($email)
                    ->text($prenom. $nom.'vous êtes invité à la prochaine coupe du monde');
 
             $mailer->send($email);
 
-            return $this->redirectToRoute('app_contact_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_contact_new', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('contact/new.html.twig', [
+        return $this->renderForm('contact/show.html.twig', [
             'contact' => $contact,
             'form' => $form,
         ]);
@@ -69,7 +73,7 @@ class ContactController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_contact_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}[^/]/edit', name: 'app_contact_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Contact $contact, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(ContactType::class, $contact);
