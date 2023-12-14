@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\ContactType;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,15 +23,19 @@ class ContactController extends AbstractController
 
             $data = $form->getData();
             
-           
-            $adresse = $data['email'];
-            $message = $data['message'];
+            $adresse= $data['email'];
+            $nom= $data['nom'];
+            $prenom= $data['prenom'];
+            $postale= $data['adresse'];
+            $texte= $data['message'];
 
             $email = (new Email())
+
             ->from($adresse)
-            ->to('jphilippe.champion@gmail.com')
+            ->to('admin@admin.com')
             ->subject('Time for Symfony Mailer!')
-            ->text($message);
+            ->text($texte);
+            
            
         $mailer->send($email);
 
