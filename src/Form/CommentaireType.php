@@ -15,10 +15,9 @@ class CommentaireType extends AbstractType
         $builder
             ->add('pseudo')
             ->add('message')
-            ->add('envoyer', SubmitType::class)
-        ;
+            ->add('envoyer', SubmitType::class);
+           
     }
-
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

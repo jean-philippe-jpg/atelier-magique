@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_accueil')]
-    public function index(Request $request): Response
+    public function index(CommentaireRepository $CommentaireRepository, Request $request, EntityManagerInterface $entityManager): Response
     {
             // systeme de commentaire
             $commentaire = new Commentaire;
@@ -25,16 +25,17 @@ class HomeController extends AbstractController
 
             if ($commentaireForm->isSubmitted() && $commentaireForm->isValid()){
 
-                
+               
                 $entityManager->persist($commentaire);
                 $entityManager->flush();
                 
 
                 $this->addFlash('message', 'je te souhaite un joyeux noel');
-                return $this->redirectToRoute('app_accueil_index', [], Response::HTTP_SEE_OTHER);
+                return $this->redirectToRoute('app_accueil', []);
             }
 
         return $this->render('home/index.html.twig', [
+            'commentaire' => $CommentaireRepository->findby([]),
             'commentaireForm' => $commentaireForm->createView(),
         ]);
     }

@@ -20,8 +20,6 @@ class Commentaire
     #[ORM\Column(type: Types::TEXT)]
     private ?string $message = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $date = null;
 
     public function getId(): ?int
     {
@@ -52,15 +50,5 @@ class Commentaire
         return $this;
     }
 
-    public function getDate(): ?\DateTimeImmutable
-    {
-        return $this->date;
-    }
-
-    public function setDate(\DateTimeImmutable $date): static
-    {
-        $this->date = $date;
-
-        return $this;
-    }
+    
 }

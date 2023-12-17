@@ -3,14 +3,15 @@
 {% block title %} cadeaux{% endblock %}
 
 {% block body %}
-<h1 style="margin-left: 30vw;  margin-top: 25px; color: green;"> salle anchanté des cadeaux magique !!</h1>
-  
-{% for ages in tata %}
+<h1 style="margin-left: 30vw;  margin-top: 50px; color: green;  "> salle anchanté des cadeaux magique !!</h1>
+   <div style="margin-top: 25vh;">
 
-  <div id="jouet" style="margin-left: 25px; color: white; width: 100px; height: 100px; background: red; margin-top: 10px; ">
-   <h3>{{ ages.name}}</h3> 
-  </div>
-
+    {% for cadeaux in tata %}
+    <div id="jouet" style=" color: white; margin-left: 10vw;  margin-top: 10px; ">
+      <h3 style=" text-align: center; width: 20%; height: 25vh;   border-radius: 12px;font-size: 0.9em; background: blue;">{{ cadeaux.name}}</h3> 
+     </div>
 {% endfor %}
+   </div>
+
     
 {% endblock %}

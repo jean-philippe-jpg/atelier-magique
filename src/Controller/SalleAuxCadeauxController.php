@@ -22,7 +22,7 @@ class SalleAuxCadeauxController extends AbstractController
                 'name' => 'asc'])
         ]);
     }
-    #[route('/detail', name: 'datil', methods: ['GET'])]
+    #[route('/detail', name: 'datail', methods: ['GET'])]
     public function detail(CadeauxRepository $CadeauxRepository): response
     {   
         return $this->render('salle_aux_cadeaux/detail.html.twig', [
