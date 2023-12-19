@@ -1,13 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}contact{% endblock %}
+{% block stylesheets %}
 
+<style>
+
+
+    .form-contact{
+        justify-content: center;
+        width: 200px;
+        margin-top: 70px;
+        margin-left: 40vw;
+       
+    }
+
+    .titre-contact{
+        color: rgb(223, 229, 218);
+        text-align: center;
+        margin-top: 50px;
+        box-shadow: 5px 10px 10px black;
+    }
+</style>
+{% endblock  %}
 {% block body %}
 
-<h1> formulaire de contact</h1>
-
-<div>
-
+<h1 class="titre-contact"> formulaire de contact</h1>
+<div class="form-contact">
     {{ form(formulaire)}}
 </div>
+<img style="  margin-top: -360px; margin: auto; width: 400px; height: 400px; " src="http://miam-images.m.i.pic.centerblog.net/o/e7bc99a0.png"/>
 {% endblock %}

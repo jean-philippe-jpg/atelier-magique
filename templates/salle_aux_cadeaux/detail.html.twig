@@ -3,17 +3,54 @@
 
 {% block title %} cadeaux{% endblock %}
 
-{% block body %}
-<h1 style="margin-left: 30vw;  margin-top: 50px; color: green;"> voici le details des cadeaux </h1>
+{% block stylesheets %}
+
+<style>
+.titre-detail {
+  display: flex;
+  box-shadow: 10px 15px 8px black;
+  color: rgb(223, 229, 218);
+  width: 700px;
+  height: 70px;
+  margin-top: 350px;
+  margin-left: 30vw;  
+  border-radius: 5px;
+
+}
+
+#jouet-detail{
+  justify-content: space-around;
+  text-align: center;
+  display: flex;
+  color: white;    
+  margin-top: 150px;
+}
+
+.cadeaux-detail {
   
+  margin-top: 20px;
+  width: 20vw; 
+  height: 25vh; 
+  border-radius: 12px;
+  font-size: 0.9em; 
+  background: blue;
+  box-shadow: 0px 10px 10px white;
+
+}
 
 
+</style>
 
-  <div id="jouet" style=" margin-left: 10vw; color: white;    margin-top: 25vh; ">
+{% endblock  %}
+
+{% block body %}
+<h1 class="titre-detail" > voici le details des cadeaux </h1>
+  
+  <div id="jouet-detail" >
 
     {% for cadeaux in tata %}
     
-      <h3 style="text-align: center; width: 20%; height: 25vh; border-radius: 12px;font-size: 0.9em; background: blue;">{{cadeaux.description}}</h3> 
+    <p class="cadeaux-detail" >{{cadeaux.description}}</p> 
     
     {% endfor %}
 

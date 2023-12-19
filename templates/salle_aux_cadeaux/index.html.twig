@@ -1,17 +1,80 @@
 {% extends 'base.html.twig' %}
 
+
+
 {% block title %} cadeaux{% endblock %}
 
-{% block body %}
-<h1 style="margin-left: 30vw;  margin-top: 50px; color: green;  "> salle anchanté des cadeaux magique !!</h1>
-   <div style="margin-top: 25vh;">
+{% block stylesheets %}
 
+<style>
+     
+
+   .cadeaux-name{
+
+   
+      box-shadow: 0px 10px 10px white;
+      width: 150px;
+      height: 150px;
+      text-align: center;   
+      border-radius: 12px;
+      font-size: 0.9em; 
+      background: blue;
+      
+      
+      
+   }
+
+   .jouet{
+      display: flex;
+      justify-content: center;
+      color: white; 
+     
+   
+   }
+
+   .titre-cadeaux{
+      
+      font-size: 1.5em;
+      text-align: center;
+      color:green;
+      font-size: 2em;
+      margin-top: 50px;
+      
+      
+       
+        }
+
+
+
+
+        .card-cadeaux{
+         display: flex;
+         justify-content: space-around;
+         flex-flow: row wrap;
+         margin-top: 100px;
+         
+        }
+
+   
+
+
+</style>
+{% endblock %}
+
+
+{% block body %}
+
+<img src="" />
+
+<h1  class="titre-cadeaux" >trouve les cadeaux cachés</h1>
+
+   <div class="card-cadeaux">
     {% for cadeaux in tata %}
-    <div id="jouet" style=" color: white; margin-left: 10vw;  margin-top: 10px; ">
-      <h3 style=" text-align: center; width: 20%; height: 25vh;   border-radius: 12px;font-size: 0.9em; background: blue;">{{ cadeaux.name}}</h3> 
-     </div>
+    
+      <h3 class="cadeaux-name">{{ cadeaux.name}}</h3> 
+      
+     
 {% endfor %}
    </div>
-
-    
+   
 {% endblock %}

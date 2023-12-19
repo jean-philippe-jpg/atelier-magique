@@ -2,18 +2,66 @@
 
 {% block title %}Register{% endblock %}
 
+{% block stylesheets %}
+
+   <style>
+      .titre-inscription{
+        color: rgb(223, 229, 218);
+       margin-top: 50px;
+       text-align: center;
+       box-shadow: 0px 10px 10px black;
+       
+      }
+
+        .card-inscription {
+            
+            text-align: center;
+            margin-top: 50px;
+            justify-content: space-between;
+        }
+       .form-register{
+        
+        
+        width: 200px;
+        height: 200px;
+        margin: auto;
+       }
+
+       .btn-reg{
+
+        background:  green;
+        margin-top: 10PX;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+       }
+
+   </style>
+{% endblock %}
+
 {% block body %}
-    <h1>Register</h1>
 
-    {{ form_errors(registrationForm) }}
+    <h1 class="titre-inscription">inscription</h1>
+    <div  class="card-inscription">
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.username) }}
+        {{ form_errors(registrationForm) }}
+    
+        {{ form_start(registrationForm) }}
+        <div class="form-register">
+
+            {{ form_row(registrationForm.username) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
         
+        </div>
+            
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+        <button class="btn-reg" type="submit" class="btn">valider</button>
+        {{ form_end(registrationForm) }}
+        
+        
+    </div>
+    
+
 {% endblock %}
